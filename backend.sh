@@ -58,10 +58,10 @@ echo "Creating expense user" | tee -a $LOG_FILE_NAME
 USERVAR=$(id expense)
  if [ $? -ne 0 ]
   then
-   useradd expense
+   useradd expense &>> $LOG_FILE_NAME
    VALIDATE $? "Creating expense user"
  else
-   echo " expense user alreay exists... $Y Skipping $N"  
+   echo -e " expense user alreay exists... $Y Skipping $N"  
  fi
 
 sleep 1
@@ -81,6 +81,10 @@ sleep 1
 echo "Moving to App dirc" | tee -a $LOG_FILE_NAME
  cd /app
  VALIDATE $? "Moving to App dirc"
+
+echo "Unzipping downloaded code to App dir"
+ unzip /tmp/backend.zip &>> $LOG_FILE_NAME
+ VALIDATE $? "Unzipping downloaded code to App dir"
 
 sleep 1
 
