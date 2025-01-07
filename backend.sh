@@ -82,6 +82,10 @@ echo "Moving to App dirc" | tee -a $LOG_FILE_NAME
  cd /app
  VALIDATE $? "Moving to App dirc"
 
+echo "Deleting code in App dir"
+ rm -rf /app/*
+ VALIDATE $? "Deleting code in App dir"
+
 echo "Unzipping downloaded code to App dir"
  unzip /tmp/backend.zip &>> $LOG_FILE_NAME
  VALIDATE $? "Unzipping downloaded code to App dir"
