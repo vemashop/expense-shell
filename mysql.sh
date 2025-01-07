@@ -6,7 +6,7 @@ Y="\e[32m"
 N="\e[0m"
 
 LOG_FOLDER="/var/log/expense-logs"
-TIMESTAMP=$(date +%D-%H:%M:%S)
+TIMESTAMP=$(date +%Y-%m-%d-%H:%M:%S)
 LOG_FILE=$(echo $0 | cut -d "." -f1)
 LOG_FILE_NAME="$LOG_FOLDER/$LOG_FILE--$TIMESTAMP"
 
